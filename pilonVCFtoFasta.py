@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import os
@@ -29,7 +29,7 @@ def read_vcf(inFile):
             if ("contig" in line and "length" in line):
                 line = line.strip()
                 length = line.split("=")[-1].strip(">")
-                print length
+                print(length)
                 refID = line.split(",")[0].split("=")[-1]
                 chromosome = ["?"] * int(length)
             #elif ("CHROM" in line and "POS" in line and "ID" in line): 
