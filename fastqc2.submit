@@ -1,5 +1,5 @@
 universe = vanilla
-executable = /opt/PepPrograms/FastQC-0.11.8.fastq.gzc
+executable = /opt/PepPrograms/FastQC-0.11.8/fastqc
 arguments = "$(RUN)_1P.fq.gz $(RUN)_2P.fq.gz -t 4"
 
 output =fastqc2_$(RUN).out
