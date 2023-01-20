@@ -12,7 +12,7 @@ when_to_transfer_output = ON_EXIT
 transfer_input_files = $(RUN)_1P.fq.gz,$(RUN)_2P.fq.gz
 
 request_cpus = 8
-request_memory = 2GB
-request_disk = 2GB
+request_memory = 4GB
+request_disk = 8GB
 
 queue
