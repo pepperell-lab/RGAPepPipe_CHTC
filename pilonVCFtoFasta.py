@@ -5,7 +5,6 @@ import os
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
-from Bio.Alphabet import IUPAC,Gapped
 
 
 #####################
@@ -63,7 +62,7 @@ def write_fasta(chromosome, RGID, refID):
     """Writes a RGA fasta alignment for each vcf"""
     outFile = RGID + "_RGA_pilon.fasta"
     Sample = "pilon_" + RGID
-    record = SeqRecord(Seq("".join(chromosome), Gapped(IUPAC.ambiguous_dna, '-')), id=Sample, description = "RGA_to_" + refID)
+    record = SeqRecord(Seq("".join(chromosome)), id=Sample, description = "RGA_to_" + refID)
     SeqIO.write(record, outFile, "fasta")
 
 for n in sys.argv[1:(len(sys.argv))] :
