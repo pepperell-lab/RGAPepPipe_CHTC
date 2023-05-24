@@ -1,5 +1,5 @@
 universe = vanilla
-executable = /opt/PepPrograms/samtools-1.11/bin/samtools
+executable = /opt/PepPrograms/samtools-1.17/bin/samtools
 arguments = "sort -O bam -T $(RUN).sort $(RUN).bam"
 
 output = $(RUN).sort.bam
