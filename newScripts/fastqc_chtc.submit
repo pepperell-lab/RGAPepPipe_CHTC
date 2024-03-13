@@ -5,8 +5,7 @@ universe = docker
 docker_image = staphb/fastqc
 
 # Since the executable is within the Docker, we use a generic shell and pass the command as an argument
-executable = /bin/sh
-arguments = "-c '/usr/local/bin/fastqc $(RUN)_1.fastq.gz $(RUN)_2.fastq.gz -t 4'"
+arguments = "fastqc $(RUN)_1.fastq.gz $(RUN)_2.fastq.gz -t 4"
 
 # Output, error, and log file configurations
 output = fastqc_$(RUN).out
@@ -25,4 +24,4 @@ request_memory = 1GB
 request_disk = 2GB
 
 # Queue the job
-queue
+queue RUN from run.txt
