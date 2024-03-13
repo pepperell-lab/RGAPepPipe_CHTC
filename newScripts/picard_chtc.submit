@@ -6,8 +6,7 @@ docker_image = biocontainers/picard-tools
 
 # Executable and arguments
 # Note: Ensure the Picard command is correctly specified for your needs inside the script or here
-executable = /bin/sh
-arguments = "-c 'java -jar /usr/local/bin/picard.jar $(RUN) $(LIBRARY) $(PLATFORM) $(SAMPLE)'"
+arguments = "java -jar picard.jar $(RUN) $(LIBRARY) $(PLATFORM) $(SAMPLE)"
 
 # Output, error, and log file configurations
 output = picard_$(RUN).out
