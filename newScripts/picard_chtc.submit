@@ -1,0 +1,28 @@
+# HTC Submit File for using Docker with Picard Tools
+
+# Specify the universe and the Docker container image
+universe = docker
+docker_image = biocontainers/picard-tools
+
+# Executable and arguments
+# Note: Ensure the Picard command is correctly specified for your needs inside the script or here
+executable = /bin/sh
+arguments = "-c 'java -jar /usr/local/bin/picard.jar $(RUN) $(LIBRARY) $(PLATFORM) $(SAMPLE)'"
+
+# Output, error, and log file configurations
+output = picard_$(RUN).out
+error = picard_$(RUN).err
+log = picard_$(RUN).log
+
+# File transfer settings
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = $(RUN).sort.bam
+
+# Resource requests
+request_cpus = 1
+request_memory = 2GB
+request_disk = 2GB
+
+# Queue the job
+queue
