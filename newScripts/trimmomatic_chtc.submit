@@ -5,8 +5,8 @@ universe = docker
 docker_image = staphb/trimmomatic
 
 # Since the executable will be a command inside the container, we use a generic shell and pass the Trimmomatic command
-executable = /bin/sh
-arguments = "-c 'trimmomatic PE -threads 4 $(RUN)_1.fastq.gz $(RUN)_2.fastq.gz $(RUN)_1.paired.fastq.gz $(RUN)_1.unpaired.fastq.gz $(RUN)_2.paired.fastq.gz $(RUN)_2.unpaired.fastq.gz <your Trimmomatic options>'"
+executable = trimmomatic.sh
+arguments = "$(RUN)"
 
 # Output, error, and log file configurations
 output = trimmomatic_$(RUN).out
@@ -24,4 +24,4 @@ request_memory = 2GB
 request_disk = 2GB
 
 # Queue the job
-queue
+queue RUN from run.txt
