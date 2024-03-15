@@ -1,6 +1,6 @@
-universe = vanilla
-executable = /opt/PepPrograms/bwa-0.7.17/bwa
-arguments = "mem -M -t 8 $(REF) $(RUN)_1P.fq.gz $(RUN)_2P.fq.gz"
+universe = container
+docker_image = staphb/bwa
+arguments = "bwa mem -M -t 8 $(REF) $(RUN)_1P.fq.gz $(RUN)_2P.fq.gz"
 
 output = $(RUN).sam
 error = bwa_$(RUN).err
@@ -15,4 +15,4 @@ request_cpus = 8
 request_memory = 4GB
 request_disk = 8GB
 
-queue
+queue RUN from run.txt
