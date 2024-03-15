@@ -1,6 +1,6 @@
-universe = vanilla
-executable = /opt/PepPrograms/samtools-1.17/bin/samtools
-arguments = "view -bhSu $(RUN).sam"
+universe = docker
+docker_image = staphb/samtools
+arguments = "samtools view -bhSu $(RUN).sam"
 
 output = $(RUN).bam
 error = samtools_view_$(RUN).err
