@@ -1,15 +1,15 @@
 universe = container
 docker_image = staphb/bwa
-arguments = "bwa mem -M -t 8 $(REF) $(RUN)_1P.fq.gz $(RUN)_2P.fq.gz"
+executable = bwaMEM.sh
+arguments = "$(RUN)"
 
 output = $(RUN).sam
 error = bwa_$(RUN).err
 log = bwa_$(RUN).log
 
-transfer_executable = FALSE
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files = $(RUN)_1P.fq.gz,$(RUN)_2P.fq.gz
+transfer_input_files = $(RUN)_1P.fq.gz, $(RUN)_2P.fq.gz, R20291.fasta
 
 request_cpus = 8
 request_memory = 4GB
