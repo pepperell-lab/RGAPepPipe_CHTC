@@ -1,6 +1,4 @@
-# HTC Submit File for using Docker with Trimmomatic
 
-# Specify the universe and the Docker container image
 universe = docker
 docker_image = staphb/trimmomatic
 
@@ -24,4 +22,4 @@ request_memory = 2GB
 request_disk = 2GB
 
 # Queue the job
-queue RUN from run.txt
+queue
