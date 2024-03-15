@@ -1,4 +1,5 @@
-universe = vanilla
+universe = docker
+docker_image = biocontainers/picard
 executable = picard.sh
 arguments = "$(RUN) $(LIBRARY) $(PLATFORM) $(SAMPLE)"
 
