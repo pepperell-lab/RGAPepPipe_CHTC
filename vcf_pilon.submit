@@ -1,4 +1,5 @@
-universe = vanilla
+universe = docker
+docker_image = staphb/pilon
 executable = vcf_pilon.sh
 arguments = "$(RUN) $(REF)"
 
