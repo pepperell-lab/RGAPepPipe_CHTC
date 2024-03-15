@@ -1,6 +1,6 @@
-universe = vanilla
-executable = /opt/PepPrograms/samtools-1.17/bin/samtools
-arguments = "sort -O bam -T $(RUN).sort $(RUN).bam"
+universe = docker
+docker_image = staphb/samtools
+arguments = "samtools sort -O bam -T $(RUN).sort $(RUN).bam"
 
 output = $(RUN).sort.bam
 error = samtools_sort_$(RUN).err
