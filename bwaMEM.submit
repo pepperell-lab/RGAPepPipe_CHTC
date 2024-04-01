@@ -1,4 +1,4 @@
-universe = container
+universe = docker
 docker_image = staphb/bwa
 executable = bwaMEM.sh
 arguments = "$(RUN)"
