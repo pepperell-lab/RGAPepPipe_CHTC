@@ -1,7 +1,6 @@
 universe = docker
 docker_image = biocontainers/picard
-executable = picard.sh
-arguments = "$(RUN) $(LIBRARY) $(PLATFORM) $(SAMPLE)"
+arguments = "picard MarkDuplicates -I $(RUN).sort.bam -O $(RUN).dedup.bam -M $(RUN).metrics -REMOVE_DUPLICATES true -AS true -VALIDATION_STRINGENCY SILENT", "picard AddOrReplaceReadGroups -I $(RUN).dedup.bam -O $(RUN).ready.bam -RGID $(RUN) -RGLB $(LIBRARY) -RGPL $(PLATFORM) -RGPU dummy-barcode -RGSM $(SAMPLE) -VALIDATION_STRINGENCY SILENT -SORT_ORDER coordinate -CREATE_INDEX true"
 
 output = picard_$(RUN).out
 error = picard_$(RUN).err
