@@ -1,4 +1,5 @@
-universe = vanilla
+universe = docker
+docker_image = docker://pegi3s/qualimap:2.2.1
 executable = bamqc.sh
 arguments = "$(RUN)"
 

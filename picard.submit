@@ -1,6 +1,9 @@
-container_image = docker://pegi3s/picard:latest
-universe = container
-arguments = "picard MarkDuplicates -I $(RUN).sort.bam -O $(RUN).dedup.bam -M $(RUN).metrics -REMOVE_DUPLICATES true -AS true -VALIDATION_STRINGENCY SILENT", "AddOrReplaceReadGroups -I $(RUN).dedup.bam -O $(RUN).ready.bam -RGID $(RUN) -RGLB $(LIBRARY) -RGPL $(PLATFORM) -RGPU dummy-barcode -RGSM $(SAMPLE) -VALIDATION_STRINGENCY SILENT -SORT_ORDER coordinate -CREATE_INDEX true"
+#container_image = docker://biocontainers/picard-tools:v2.18.25dfsg-2-deb_cv1
+universe = vanilla
+
+executable = picard.sh
+arguments = "$(RUN) $(LIBRARY) $(PLATFORM) $(SAMPLE)"
+#arguments = "MarkDuplicates -I $(RUN).sort.bam -O $(RUN).dedup.bam -M $(RUN).metrics -REMOVE_DUPLICATES true -AS true -VALIDATION_STRINGENCY SILENT"  "AddOrReplaceReadGroups -I $(RUN).dedup.bam -O $(RUN).ready.bam -RGID $(RUN) -RGLB $(LIBRARY) -RGPL $(PLATFORM) -RGPU dummy-barcode -RGSM $(SAMPLE) -VALIDATION_STRINGENCY SILENT -SORT_ORDER coordinate -CREATE_INDEX true"
 
 output = picard_$(RUN).out
 error = picard_$(RUN).err
@@ -11,7 +14,7 @@ when_to_transfer_output = ON_EXIT
 transfer_input_files = $(RUN).sort.bam
 
 request_cpus = 1
-request_memory = 2GB
-request_disk = 2GB
+request_memory = 10GB
+request_disk = 3GB
 
 queue

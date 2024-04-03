@@ -1,6 +1,7 @@
-universe = vanilla
-executable = pilonVCFtoFasta.py
-arguments = "$(RUN)_pilon.vcf"
+universe = docker
+docker_image = docker://pegi3s/biopython:1.78
+#executable = pilonVCFtoFasta.py
+arguments = "/bin/python3 pilonVCFtoFasta.py $(RUN)_pilon.vcf"
 
 output = pilonVCFtoFasta_$(RUN).out
 error = pilonVCFtoFasta_$(RUN).err
@@ -8,7 +9,7 @@ log = pilonVCFtoFasta_$(RUN).log
 
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files = $(RUN)_pilon.vcf
+transfer_input_files = $(RUN)_pilon.vcf, pilonVCFtoFasta.py
 
 request_cpus = 1
 request_memory = 1GB
