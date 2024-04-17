@@ -11,10 +11,12 @@ log = picard_$(RUN).log
 
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files = $(RUN).sort.bam
+transfer_input_files = file:///staging/mtopf/Cdiff/$(RUN).sort.bam
+transfer_output_remaps = "$(RUN).ready.bam = file:///staging/mtopf/Cdiff/$(RUN).ready.bam; $(RUN).ready.bai = file:///staging/mtopf/Cdiff/$(RUN).ready.bai"
 
+Requirements = (Target.HasCHTCStaging == true)
 request_cpus = 1
 request_memory = 10GB
-request_disk = 3GB
+request_disk = 5GB
 
 queue

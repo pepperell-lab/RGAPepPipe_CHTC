@@ -3,17 +3,23 @@ docker_image = staphb/bwa
 arguments = "$(REF) $(RUN)"
 executable = BWA.sh
 
-output = $(RUN).sam
 error = bwa_$(RUN).err
 log = bwa_$(RUN).log
 
 should_transfer_files = YES
 transfer_executable = TRUE
 when_to_transfer_output = ON_EXIT
-transfer_input_files = $(RUN)_1P.fq.gz, $(RUN)_2P.fq.gz, R20291.fasta
 
+staging_prefix = file:///staging/mtopf/Cdiff
+transfer_input_files = $(staging_prefix)/$(RUN)_1P.fq.gz, $(staging_prefix)/$(RUN)_2P.fq.gz, R20291.fasta
+transfer_output_files = $(RUN).sam
+transfer_output_remaps = "$(RUN).sam = $(staging_prefix)/$(RUN).sam"
+
+
+
+Requirements = (Target.HasCHTCStaging == true) 
 request_cpus = 8
 request_memory = 4GB
 request_disk = 8GB
 
-queue
+queue RUN from run.txt

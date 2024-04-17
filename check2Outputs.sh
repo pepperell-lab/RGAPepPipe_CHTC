@@ -10,3 +10,6 @@ fi
 if [ -z "$file2" ]; then
     exit 1
 fi
+
+mv $1 /staging/mtopf/Cdiff/
+mv $2 /staging/mtopf/Cdiff/

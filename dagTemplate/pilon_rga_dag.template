@@ -3,7 +3,6 @@ VARS fastqc RUN="${run}"
 
 JOB trim trimmomatic.submit
 VARS trim RUN="${run}"
-SCRIPT POST trim check2Outputs.sh ${run}_1P.fq.gz ${run}_2P.fq.gz 10M
 
 JOB fastqc2 fastqc2.submit
 VARS fastqc2 RUN="${run}"
@@ -14,23 +13,20 @@ VARS bwa REF="${ref}"
 
 JOB view samtools_view.submit
 VARS view RUN="${run}"
-SCRIPT POST view checkOutput_removeIntermediates.sh ${run}.bam 10M ${run}_1U.fq.gz ${run}_2U.fq.gz
 
 JOB sort samtools_sort.submit
 VARS sort RUN="${run}"
-SCRIPT POST sort checkOutput_removeIntermediates.sh ${run}.sort.bam 10M ${run}.sam
 
 JOB picard picard.submit
 VARS picard RUN="${run}"
 VARS picard LIBRARY="${lib}"
 VARS picard PLATFORM="${platform}"
 VARS picard SAMPLE="${sample}"
-SCRIPT POST picard checkOutput_removeIntermediates.sh ${run}.ready.bam 10M ${run}.bam
 
 JOB vcf_pilon vcf_pilon.submit
 VARS vcf_pilon RUN="${run}"
 VARS vcf_pilon REF="${ref}"
-SCRIPT POST vcf_pilon checkOutput_removeIntermediates.sh ${run}_pilon.vcf 10M ${run}.dedup.bam ${run}_pilon.fasta
+SCRIPT POST vcf_pilon checkOutput_removeIntermediates.sh ${run}_pilon.vcf 10M file:///staging/mtopf/Cdiff/${run}.bam file:///staging/mtopf/Cdiff/${run}_1U.fq.gz file:///staging/mtopf/Cdiff/${run}_2U.fq.gz file:///staging/mtopf/Cdiff/${run}.ready.bam file:///staging/mtopf/Cdiff/${run}.sam file:///staging/mtopf/Cdiff/{run}.dedup.bam file:///staging/mtopf/Cdiff/{run}_pilon.fasta
 
 JOB bamqc bamqc.submit
 VARS bamqc RUN="${run}"

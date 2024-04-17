@@ -9,7 +9,9 @@ log = $(RUN)_pilon.log
 
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files = $(RUN).ready.bam, $(RUN).ready.bai, R20291.fasta
+transfer_input_files = file:///staging/mtopf/Cdiff/$(RUN).ready.bam, file:///staging/mtopf/Cdiff/$(RUN).ready.bai, R20291.fasta
+transfer_output_files = $(RUN).ready.bam
+transfer_output_remaps = "$(RUN).ready.bam = file:///staging/mtopf/Cdiff/$(RUN).ready.bam"
 
 request_cpus = 1
 request_memory = 10GB
