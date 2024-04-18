@@ -26,7 +26,6 @@ VARS picard SAMPLE="${sample}"
 JOB vcf_pilon vcf_pilon.submit
 VARS vcf_pilon RUN="${run}"
 VARS vcf_pilon REF="${ref}"
-SCRIPT POST vcf_pilon checkOutput_removeIntermediates.sh ${run}_pilon.vcf 10M file:///staging/mtopf/Cdiff/${run}.bam file:///staging/mtopf/Cdiff/${run}_1U.fq.gz file:///staging/mtopf/Cdiff/${run}_2U.fq.gz file:///staging/mtopf/Cdiff/${run}.ready.bam file:///staging/mtopf/Cdiff/${run}.sam file:///staging/mtopf/Cdiff/{run}.dedup.bam file:///staging/mtopf/Cdiff/{run}_pilon.fasta
 
 JOB bamqc bamqc.submit
 VARS bamqc RUN="${run}"

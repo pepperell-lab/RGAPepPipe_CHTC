@@ -19,7 +19,7 @@ transfer_output_remaps = "$(RUN).sam = $(staging_prefix)/$(RUN).sam"
 
 Requirements = (Target.HasCHTCStaging == true) 
 request_cpus = 8
-request_memory = 4GB
-request_disk = 8GB
+request_memory = 50GB
+request_disk = 50GB
 
-queue RUN from run.txt
+queue
