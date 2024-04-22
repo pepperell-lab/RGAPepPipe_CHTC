@@ -17,6 +17,6 @@ transfer_output_remaps = "$(RUN).ready.bam = file:///staging/mtopf/Cdiff/$(RUN).
 Requirements = (Target.HasCHTCStaging == true)
 request_cpus = 1
 request_memory = 10GB
-request_disk = 5GB
+request_disk = 10GB
 
 queue
