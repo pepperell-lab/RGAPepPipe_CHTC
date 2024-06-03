@@ -1,6 +1,6 @@
 universe = docker
 docker_image = staphb/samtools
-arguments = "samtools sort -O bam -T $(RUN).sort $(RUN).bam -o $(RUN).sort.bam"
+arguments = "samtools sort -O bam -T 3151_17_S11.sort 3151_17_S11.bam -o 3151_17_S11.sort.bam"
 
 error = samtools_sort_$(RUN).err
 log = samtools_sort_$(RUN).log
@@ -14,7 +14,7 @@ transfer_output_remaps = "$(RUN).sort.bam = file:///staging/mtopf/Cdiff/$(RUN).s
 
 Requirements = (Target.HasCHTCStaging == true)
 request_cpus = 1
-request_memory = 2GB
-request_disk = 4GB
+request_memory = 4GB
+request_disk = 10GB
 
 queue
