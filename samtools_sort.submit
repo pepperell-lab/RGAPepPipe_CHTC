@@ -1,6 +1,6 @@
 universe = docker
 docker_image = staphb/samtools
-arguments =  "$(RUN).sort $(RUN).bam -o $(RUN).sort.bam"
+arguments =  "sort -t $(RUN).bam -o $(RUN).sort.bam"
 
 error = samtools_sort_$(RUN).err
 log = samtools_sort_$(RUN).log
