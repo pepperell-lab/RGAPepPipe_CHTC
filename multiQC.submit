@@ -1,6 +1,6 @@
 universe = vanilla
 
-executable = multiQC-kraken2.sh
+executable = multiQC.sh
 
 output = multiQC.out
 error = multiQC.err
