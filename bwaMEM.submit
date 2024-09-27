@@ -11,7 +11,7 @@ transfer_executable = TRUE
 when_to_transfer_output = ON_EXIT
 
 staging_prefix = file:///staging/mtopf/Cdiff
-transfer_input_files = $(staging_prefix)/$(RUN)_1P.fq.gz, $(staging_prefix)/$(RUN)_2P.fq.gz, "$(REF)"
+transfer_input_files = $(staging_prefix)/$(RUN)_1P.fq.gz, $(staging_prefix)/$(RUN)_2P.fq.gz, $(REF)
 transfer_output_files = $(RUN).sam
 transfer_output_remaps = "$(RUN).sam = $(staging_prefix)/$(RUN).sam"
 
